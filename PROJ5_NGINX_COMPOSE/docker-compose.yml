@@ -1,0 +1,13 @@
+version : '2'
+
+services:
+  proxy:
+      build:
+        context: ../PROJ4_NGINX_CUSTOM
+        dockerfile : nginx.dockerfile
+      ports : 
+        - '4000:80'
+  web:
+    image: httpd
+    volumes :
+      - ./html:/usr/local/apache2/htdocs/
